@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Chatbot Dashboard</title>
+  <link rel="stylesheet" href="../../static/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts Link For Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <script src="../../static/script.js" defer></script>
+  <style>
+    body {
+      background-image: url('../../static/bc1.jpeg');
+      background-position: center;
+      background-size: cover;
+      padding-top: 50px;
+    }
+    /* Style for removing underline from anchor */
+    a {
+      text-decoration: none;
+    }
+
+    /* Style for making anchor look like a button */
+    .doctor-consultation {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none; /* Remove underline */
+      margin-right: 10px; /* Added margin for spacing */
+    }
+
+    /* Style for anchor hover effect */
+    .doctor-consultation:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Welcome to Dr. AI ChatBot</h1>
+  
+  <br>
+  <a href="/hospital" class="doctor-consultation">Doctor Consultation</a>
+  <!-- New buttons -->
+  <button class="doctor-consultation" id="emailBtn">Contact us over email</button>
+  <button class="doctor-consultation" id="whatsappBtn">Contact on WhatsApp</button>
+
+  <button class="chatbot-toggler">
+    <span class="material-symbols-rounded">mode_comment</span>
+    <span class="material-symbols-outlined">close</span>
+  </button>
+  <div class="chatbot">
+    <header>
+      <h2>Chatbot</h2>
+      <span class="close-btn material-symbols-outlined">close</span>
+    </header>
+    <ul class="chatbox">
+      <li class="chat incoming">
+        <span class="material-symbols-outlined">smart_toy</span>
+        <p>Hi there 👋 I am Dr Chatbot<br>Enter your symptoms</p>
+      </li>
+    </ul>
+    <!-- Add the symptoms list container here -->
+    <div class="symptoms-list-container">
+      <div class="symptoms-list">
+        <h3>Symptoms:</h3>
+        <ul>
+          {% for symptom in symptoms %}
+            <li>{{ symptom }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="chat-input">
+      <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+      <span id="send-btn" class="material-symbols-rounded">send</span>
+    </div>
+  </div>
+  
+
+  <script>
+    // Function to open Gmail compose window
+    document.getElementById('emailBtn').addEventListener('click', function() {
+      var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      var emailLink = isMobile ? 'mailto:?to=shivaprasadgoudam@gmail.com' : 'https://mail.google.com/mail/?view=cm&fs=1&to=shivaprasadgoudam@gmail.com';
+      window.location.href = emailLink;
+    });
+
+    // Function to open WhatsApp
+    document.getElementById('whatsappBtn').addEventListener('click', function() {
+      var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      var whatsappLink = isMobile ? 'https://wa.me/917483338187' : 'https://web.whatsapp.com/send?phone=917483338187';
+      window.location.href = whatsappLink;
+    });
+  </script>
+</body>
+</html>

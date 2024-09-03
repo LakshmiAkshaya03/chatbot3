@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .hospital {
+            margin-top: 20px;
+            border-top: 2px solid #333;
+            padding-top: 20px;
+        }
+
+        .hospital h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .doctor {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .doctor p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .doctor p:first-child {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Doctor Details</h1>
+        {% for hospital, doctors in data.items() %}
+        <div class="hospital">
+            <h2>{{ hospital }}</h2>
+            {% for doctor in doctors %}
+            <div class="doctor">
+                <a href="{{ doctor['link'] }}">
+                    <p>Doctor Name: {{ doctor['name'] }}</p>
+                </a>
+                <p>Specialization: {{ doctor['specialization'] }}</p>
+                <p>Experience: {{ doctor['experience'] }}</p>
+                <p><a href="{{ doctor.location }}" target="_blank">Hospital Location</a></p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

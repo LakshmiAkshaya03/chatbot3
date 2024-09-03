@@ -1,0 +1,53 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+
+.container {
+    text-align: center;
+    padding: 50px; /* Adjust padding */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: moccasin;
+}
+
+h1 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+input[type="email"],
+input[type="password"],
+button[type="submit"] {
+    width: 300px; /* Adjust width */
+    height: 40px; /* Adjust height */
+    margin-bottom: 15px; /* Add space between elements */
+    font-size: 16px; /* Adjust font size */
+    border-radius: 5px; /* Add some border radius */
+    border: 1px solid #ccc; /* Add border */
+    padding: 5px 10px; /* Add padding */
+}
+
+button[type="submit"] {
+    background-color: #3498db; /* Change button background color */
+    color: #fff; /* Change button text color */
+    cursor: pointer; /* Add pointer cursor */
+    transition: background-color 0.3s; /* Add transition effect */
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9; /* Change button background color on hover */
+}
+
+p {
+    color: black; /* Adjust paragraph color */
+    margin-top: 15px; /* Add space above the paragraph */
+}
